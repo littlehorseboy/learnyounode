@@ -4,13 +4,13 @@ function asyncGet(url) {
   return new Promise((resolve, reject) => {
     http
       .get(url, (res) => {
-        let data = '';
+        let result = '';
         res.setEncoding('utf8');
         res.on('data', (chunk) => {
-          data += chunk;
+          result += chunk;
         });
         res.on('end', () => {
-          resolve(data);
+          resolve(result);
         });
         res.on('error', (err) => {
           reject(err);
